@@ -246,5 +246,6 @@ opening()
 
 
 # TO DO:
+# Deploy early (screenshot the method)
 # Make the words 'type' in real time (do later - it slows down testing)
 # Pauses between certain lines
