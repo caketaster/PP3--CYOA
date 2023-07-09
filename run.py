@@ -57,7 +57,7 @@ def prince_princess(town, name):
     Player chooses whether to rescue a prince or a princess
     """
     print(f"The rooster crows in the grotty hamlet of {town}.")
-    print(f"You, {name}, roll from your filthy woven mattress and pull your unwashed rags over your unwashed head. Lice scatter.")
+    print(f"You, {name}, roll from your filthy woven mattress and pull your unwashed rags over your unwashed head. Lice scatter.") # noqa
     print("A newspaper falls through your letterbox,")
     print("you look at the front page")
     print("A member of the royal household has been kidnapped!")
@@ -65,14 +65,14 @@ def prince_princess(town, name):
     print("Your filthy thumbprint has smeared the details...")
     royal_choice = ""
     while royal_choice.strip() != "1" or "2":
-        royal_choice = input("Is the kidnapped royal a PRINCE(1) or a PRINCESS(2)? \n")
+        royal_choice = input("Is the kidnapped royal a PRINCE(1) or a PRINCESS(2)? \n") # noqa
         if royal_choice.strip() == "1":
             royal = "prince"
             print('The newspaper reads: ')
             print('"The handsome prince, covered in six-packs & pectorals,')
             print("intelligent and witty and not a pimple on his skin, ")
             print("was just this morning kidnapped from the castle. ")
-            print("Whomsoever dost rescue him surely shall be handsomely rewarded")
+            print("Whomsoever dost rescue him surely shall be handsomely rewarded") # noqa
             print("with a kiss on their haggard face, a bag of silver coin, ")
             print('or whatever reward the rescuer dost desire."')
             first(name, royal)
@@ -80,17 +80,17 @@ def prince_princess(town, name):
         elif royal_choice.strip() == "2":
             royal = "princess"
             print('The newspaper reads:')
-            print('"The smouldering princess, veritably covered in shapely curves')
+            print('"The smouldering princess, veritably covered in shapely curves') # noqa
             print("with a sharp and clever wit")
             print("smooth of skin and the most lovely in the land,")
             print("was this morning kidnapped from the castle.")
-            print("Whomsoever dost rescue her surely shall be handsomely rewarded")
+            print("Whomsoever dost rescue her surely shall be handsomely rewarded") # noqa
             print("with a kiss on their spotty cheek, a bag of silver coin, ")
             print('or whatever reward the rescuer dost desire."')
             first(name, royal)
             return royal
         else:
-            print("Your chubby peasantly fingers have missed the relevant keys. ")
+            print("Your chubby peasantly fingers have missed the relevant keys. ") # noqa
             print("Attempt to uncross thine eyes and try again.")
     
 
@@ -113,12 +113,11 @@ def first(name, royal):
             print("Again your foolishness confounds me!")
             
 
-
 def palace(royal):
     """
     The initial palace path
     """
-    print(f"Let’s face it, if the {royal} was at the palace they wouldn’t be missing, would they? Cursing your lack of intelligence, you sit down for a while to think. There’s a chance the kidnappers might have taken the {royal} away in a stagecoach, so the logical thing would be to go to the CROSSROADS and search. But on the other hand you haven’t had any ale or mead for what feels like hours, and there’s a very slim chance the {royal} might have just slipped out for a cheeky gin and soda.")
+    print(f"Let’s face it, if the {royal} was at the palace they wouldn’t be missing, would they? Cursing your lack of intelligence, you sit down for a while to think. There’s a chance the kidnappers might have taken the {royal} away in a stagecoach, so the logical thing would be to go to the CROSSROADS and search. But on the other hand you haven’t had any ale or mead for what feels like hours, and there’s a very slim chance the {royal} might have just slipped out for a cheeky gin and soda.") # noqa
     print("Where dost thou wish to turn?")
     palace_choice = input("Toward the CROSSROADS(1) or the PUB(2)\n")
     palace_choice = ""
@@ -132,17 +131,16 @@ def palace(royal):
             print("The decision is not difficult for folk of sound mind.")
         
 
-
 def pub(royal):
     """
     The initial pub path
     """
-    print(f"You barrel into the pub and order a flagoon of wine. Followed by another flagoon of wine. The {royal} does not seem to be in the pub, so you have another drink. You fall asleep. You awake mid-afternoon feeling sure that you had some kind of mission to fulfil.")
+    print(f"You barrel into the pub and order a flagoon of wine. Followed by another flagoon of wine. The {royal} does not seem to be in the pub, so you have another drink. You fall asleep. You awake mid-afternoon feeling sure that you had some kind of mission to fulfil.") # noqa
     print("Where next, friend?")
     pub_choice = input("The PALACE(1), CROSSROADS(2), or stay here(3)?\n")
     pub_choice = ""
     while pub_choice != "1" or "2":
-        pub_choice = input("Will ye go to the PALACE(1), the CROSSROADS(2), or stay here(3)?\n")
+        pub_choice = input("Will ye go to the PALACE(1), the CROSSROADS(2), or stay here(3)?\n") # noqa
         if pub_choice.strip() == "1":
             palace(royal)
         elif pub_choice.strip() == "2":
@@ -179,8 +177,8 @@ def crossroads():
     """
     The Crossroads choice, on the correct path to victory
     """
-    print("Lumbering down the lane, nature calls and you feel the need to relieve yourself. Will you do it in the bushes, or urinate into your own (already filthy) trousers?")
-    wee_choice = input("Type [1] for in the BUSHES or [2] for WETTING YOURSELF: \n")
+    print("Lumbering down the lane, nature calls and you feel the need to relieve yourself. Will you do it in the bushes, or urinate into your own (already filthy) trousers?") # noqa
+    wee_choice = input("Type [1] for in the BUSHES or [2] for WETTING YOURSELF: \n") # noqa
     if wee_choice.strip() == "1":
         bushes(royal)
     elif wee_choice.strip() == "2":
@@ -191,8 +189,8 @@ def bushes(royal):
     """
     The wrong choice, leading to a GAME OVER
     """
-    print(f"After doing what you have to do, you run out again toward the crossroads. In the distance the carriage rounds a bend - you're too late! Your rare thought of personal hygiene has allowed the kidnappers of the {royal} to escape.")
-    print("You trudge home, vowing never again to pee outside of your own clothing.")
+    print(f"After doing what you have to do, you run out again toward the crossroads. In the distance the carriage rounds a bend - you're too late! Your rare thought of personal hygiene has allowed the kidnappers of the {royal} to escape.") # noqa
+    print("You trudge home, vowing never again to pee outside of your own clothing.") # noqa
     print("GAME OVER.")
     game_over()
 
@@ -201,10 +199,10 @@ def carriage(name, royal):
     """
     Player has a chance to intercept the fleeing carriage
     """
-    print(f"Trousers full of wee, you, {name}, round the bend as the carriage approaches, the {royal} tied up in the back seat. You'll only have one chance to stop the carriage!")
+    print(f"Trousers full of wee, you, {name}, round the bend as the carriage approaches, the {royal} tied up in the back seat. You'll only have one chance to stop the carriage!") # noqa
     print("In front of you, you see a rock, a stick and a knife.")
-    print("You decide to throw one implement at the kidnappers to stop them, but which will you choose...?")
-    weapon = input("Will thee toss the rock [1], the stick [2] or the knife [3]? \n")
+    print("You decide to throw one implement at the kidnappers to stop them, but which will you choose...?") # noqa
+    weapon = input("Will thee toss the rock [1], the stick [2] or the knife [3]? \n") # noqa
     if weapon.strip() == "1":
         rock(royal, name)
     elif weapon.strip() == "2":
@@ -229,8 +227,8 @@ def knife(royal):
     """
     The wrong weapon, leading to a Game Over
     """
-    print("You leap, shrieking and brandishing the knife! But as you pull back the blade to hurl carriageward you embed it in your own bulbous forehead.")
-    print(f"You slump to the ground as the kidnappers' carriage bearing the {royal} steams past.")
+    print("You leap, shrieking and brandishing the knife! But as you pull back the blade to hurl carriageward you embed it in your own bulbous forehead.") # noqa
+    print(f"You slump to the ground as the kidnappers' carriage bearing the {royal} steams past.") # noqa
     print("Home you stagger, dagger still stuck in your spotty head.")
     print("There'll be no rescue today.")
     print("GAME OVER.")
@@ -261,23 +259,35 @@ opening()
 
 
 # QUESTIONS:
-# Do I need to keep my lines under 80 chars? Or can I just allow them to wrap?
-# How do I end the game (using break) at Game Over points?
 # Variables (name, royal, hometown) are not *always* carrying over into new functions. What am I doing wrong? Something to do with local vs. global scope - use classes!!
-# Can I use classes here..? Seems to be working without them but the code is quite basic as is. Is it enough?
-# If you don't type 1 or 2 I want the question to be re-asked, but it just breaks out (e.g. prince_princess function)
 
 
 # TO DO:
 # Deploy early (screenshot the method)
 # Make the words 'type' in real time (do later - it slows down testing)
 # Pauses between certain lines
-# ASCII pics (ask chatgpt?)
+# Check if input provided - i.e. don't accept blank inputs (how?)
+# Use colour (import colorama)
+# You can make what the user enters more clear to vs the story text  and use red/yellow for correct incorrect messaging.
+    # Colorama is really easy to install and then use with string based messages which you have in your program.
+    # You’ll have to pip install colorama then freeze your requirements.txt again but it’s worth it.
+    # Here’s an article about color in python, jump to the colorama bit:
+    # https://www.geeksforgeeks.org/print-colors-python-terminal/
+# Use fancy fonts for welcome and good bye
+    # Here’s an article about fancy fonts in python: https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/
+    # You basically install pyfiglet and it can make your letters bubbly and stand out more.
+# ASCII art
+    # Search for ascii art generator from image and you will get lots of results on how to convert images to ascii art. It might help you add some graphic components potentially. I’d save any ascii_art into an ascii_art.py file and import them as needed so they don’t mess up your main run.py file.
+
+    # https://convertcase.net/ascii-art-generator/ works pretty well for gray scale,
+
+    # this one works for color images: https://www.meridianoutpost.com/resources/etools/calculators/downloader-ascii-art.php 
 
 
-# while loop OR separate function for questions so that you can re-ask questions
-# .strip() for choices 
- # noqa at the end of long lines
+
+# while loop OR separate function for questions so that you can re-ask questions  OK
+# .strip() for choices   OK
+ # noqa at the end of long lines  OK
 
 
 #  pp2 - remove 'onclick' from html buttons - should work. Try then send to Malia
