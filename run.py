@@ -101,9 +101,8 @@ def first(name, royal):
     print(f"So it is decided that YOU, {name}, will rescue the {royal}.")
     print("You waddle down the stairs and flop onto the street.")
     print("In which direction will you turn?")
-    first_choice = input("Toward the PALACE(1) or the PUB(2)? \n")
     first_choice = ""
-    while first_choice != "1" or "2":
+    while first_choice.strip() != "1" or "2":
         first_choice = input("Toward the PALACE(1) or the PUB(2)? \n")
         if first_choice.strip() == "1":
             palace(royal)
@@ -119,13 +118,12 @@ def palace(royal):
     """
     print(f"Let’s face it, if the {royal} was at the palace they wouldn’t be missing, would they? Cursing your lack of intelligence, you sit down for a while to think. There’s a chance the kidnappers might have taken the {royal} away in a stagecoach, so the logical thing would be to go to the CROSSROADS and search. But on the other hand you haven’t had any ale or mead for what feels like hours, and there’s a very slim chance the {royal} might have just slipped out for a cheeky gin and soda.") # noqa
     print("Where dost thou wish to turn?")
-    palace_choice = input("Toward the CROSSROADS(1) or the PUB(2)\n")
     palace_choice = ""
-    while palace_choice != "1" or "2":
+    while palace_choice.strip() != "1" or "2":
         palace_choice = input("Toward the CROSSROADS(1) or the PUB(2)\n")
-        if palace_choice.strip() == "1":
+        if palace_choice == "1":
             crossroads()
-        elif palace_choice.strip() == "2":
+        elif palace_choice == "2":
             pub(royal)
         else:
             print("The decision is not difficult for folk of sound mind.")
@@ -137,7 +135,6 @@ def pub(royal):
     """
     print(f"You barrel into the pub and order a flagoon of wine. Followed by another flagoon of wine. The {royal} does not seem to be in the pub, so you have another drink. You fall asleep. You awake mid-afternoon feeling sure that you had some kind of mission to fulfil.") # noqa
     print("Where next, friend?")
-    pub_choice = input("The PALACE(1), CROSSROADS(2), or stay here(3)?\n")
     pub_choice = ""
     while pub_choice != "1" or "2":
         pub_choice = input("Will ye go to the PALACE(1), the CROSSROADS(2), or stay here(3)?\n") # noqa
@@ -178,11 +175,15 @@ def crossroads():
     The Crossroads choice, on the correct path to victory
     """
     print("Lumbering down the lane, nature calls and you feel the need to relieve yourself. Will you do it in the bushes, or urinate into your own (already filthy) trousers?") # noqa
-    wee_choice = input("Type [1] for in the BUSHES or [2] for WETTING YOURSELF: \n") # noqa
-    if wee_choice.strip() == "1":
-        bushes(royal)
-    elif wee_choice.strip() == "2":
-        carriage(name, royal)
+    wee_choice = ""
+    while wee_choice.strip() != "1" or "2":
+        wee_choice = input("Type [1] for in the BUSHES or [2] for WETTING YOURSELF: \n") # noqa
+        if wee_choice.strip() == "1":
+            bushes(royal)
+        elif wee_choice.strip() == "2":
+            carriage(name, royal)
+        else:
+            print("Thou do not hast time to fool around with a bladder this full")
 
 
 def bushes(royal):
@@ -202,13 +203,17 @@ def carriage(name, royal):
     print(f"Trousers full of wee, you, {name}, round the bend as the carriage approaches, the {royal} tied up in the back seat. You'll only have one chance to stop the carriage!") # noqa
     print("In front of you, you see a rock, a stick and a knife.")
     print("You decide to throw one implement at the kidnappers to stop them, but which will you choose...?") # noqa
-    weapon = input("Will thee toss the rock [1], the stick [2] or the knife [3]? \n") # noqa
-    if weapon.strip() == "1":
-        rock(royal, name)
-    elif weapon.strip() == "2":
-        stick()
-    elif weapon.strip() == "3":
-        knife(royal)
+    weapon = ""
+    while weapon != "1" or "2" or "3":
+        weapon = input("Will thee toss the rock [1], the stick [2] or the knife [3]? \n") # noqa
+        if weapon.strip() == "1":
+            rock(royal, name)
+        elif weapon.strip() == "2":
+            stick()
+        elif weapon.strip() == "3":
+            knife(royal)
+        else:
+            print("The carriage is moving fast, make your choice")
 
 
 def rock(royal, name):
