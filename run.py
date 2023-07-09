@@ -1,7 +1,8 @@
 # def Player():
-#     def __init__(self, name, hometown):
+#     def __init__(self, name, royal, hometown):
 #         self.name = name
 #         self.hometown = hometown
+#         self.royal = royal
 
 
 name = ""
@@ -13,8 +14,8 @@ def opening():
     """
     Gives the user the choice of whether or not to start the game
     """
-    start = input("Begin game? [Y/N]").lower()
-    if start == 'y':
+    start = input("Begin game? [Y/N]\n").lower()
+    if start.strip() == 'y':
         name_reverse()
         hometown(name)
     else:
@@ -62,36 +63,36 @@ def prince_princess(town, name):
     print("A member of the royal household has been kidnapped!")
     print("Someone is going to have to rescue him, or her. ")
     print("Your filthy thumbprint has smeared the details...")
-    royal_choice = input("Is the kidnapped royal a PRINCE(1) or a PRINCESS(2)? \n")
-    if royal_choice == "1":
-        royal = "prince"
-        print('The newspaper reads: ')
-        print('"The handsome prince, covered in six-packs & pectorals,')
-        print("intelligent and witty and not a pimple on his skin, ")
-        print("was just this morning kidnapped from the castle. ")
-        print("Whomsoever dost rescue him surely shall be handsomely rewarded")
-        print("with a kiss on their haggard face, a bag of silver coin, ")
-        print('or whatever reward the rescuer dost desire."')
-        first(name, royal)
-        return royal
-    elif royal_choice == "2":
-        royal = "princess"
-        print('The newspaper reads:')
-        print('"The smouldering princess, veritably covered in shapely curves')
-        print("with a sharp and clever wit")
-        print("smooth of skin and the most lovely in the land,")
-        print("was this morning kidnapped from the castle.")
-        print("Whomsoever dost rescue her surely shall be handsomely rewarded")
-        print("with a kiss on their spotty cheek, a bag of silver coin, ")
-        print('or whatever reward the rescuer dost desire."')
-        first(name, royal)
-        return royal
-    else:
-        print("Your chubby peasantly fingers have missed the relevant keys. ")
-        print("Attempt to uncross thine eyes and try again.")
+    royal_choice = ""
+    while royal_choice.strip() != "1" or "2":
         royal_choice = input("Is the kidnapped royal a PRINCE(1) or a PRINCESS(2)? \n")
-        
-
+        if royal_choice.strip() == "1":
+            royal = "prince"
+            print('The newspaper reads: ')
+            print('"The handsome prince, covered in six-packs & pectorals,')
+            print("intelligent and witty and not a pimple on his skin, ")
+            print("was just this morning kidnapped from the castle. ")
+            print("Whomsoever dost rescue him surely shall be handsomely rewarded")
+            print("with a kiss on their haggard face, a bag of silver coin, ")
+            print('or whatever reward the rescuer dost desire."')
+            first(name, royal)
+            return royal
+        elif royal_choice.strip() == "2":
+            royal = "princess"
+            print('The newspaper reads:')
+            print('"The smouldering princess, veritably covered in shapely curves')
+            print("with a sharp and clever wit")
+            print("smooth of skin and the most lovely in the land,")
+            print("was this morning kidnapped from the castle.")
+            print("Whomsoever dost rescue her surely shall be handsomely rewarded")
+            print("with a kiss on their spotty cheek, a bag of silver coin, ")
+            print('or whatever reward the rescuer dost desire."')
+            first(name, royal)
+            return royal
+        else:
+            print("Your chubby peasantly fingers have missed the relevant keys. ")
+            print("Attempt to uncross thine eyes and try again.")
+    
 
 def first(name, royal):
     """
@@ -101,13 +102,16 @@ def first(name, royal):
     print("You waddle down the stairs and flop onto the street.")
     print("In which direction will you turn?")
     first_choice = input("Toward the PALACE(1) or the PUB(2)? \n")
-    if first_choice == "1":
-        palace(royal)
-    elif first_choice == "2":
-        pub(royal)
-    else:
-        print("Again your foolishness confounds me!")
-        first_choice = input("Type 1 for PALACE, 2 for PUB: \n")
+    first_choice = ""
+    while first_choice != "1" or "2":
+        first_choice = input("Toward the PALACE(1) or the PUB(2)? \n")
+        if first_choice.strip() == "1":
+            palace(royal)
+        elif first_choice.strip() == "2":
+            pub(royal)
+        else:
+            print("Again your foolishness confounds me!")
+            
 
 
 def palace(royal):
@@ -117,12 +121,16 @@ def palace(royal):
     print(f"Let’s face it, if the {royal} was at the palace they wouldn’t be missing, would they? Cursing your lack of intelligence, you sit down for a while to think. There’s a chance the kidnappers might have taken the {royal} away in a stagecoach, so the logical thing would be to go to the CROSSROADS and search. But on the other hand you haven’t had any ale or mead for what feels like hours, and there’s a very slim chance the {royal} might have just slipped out for a cheeky gin and soda.")
     print("Where dost thou wish to turn?")
     palace_choice = input("Toward the CROSSROADS(1) or the PUB(2)\n")
-    if palace_choice == "1":
-        crossroads()
-    elif palace_choice == "2":
-        pub(royal)
-    else:
-        palace_choice = input("")
+    palace_choice = ""
+    while palace_choice != "1" or "2":
+        palace_choice = input("Toward the CROSSROADS(1) or the PUB(2)\n")
+        if palace_choice.strip() == "1":
+            crossroads()
+        elif palace_choice.strip() == "2":
+            pub(royal)
+        else:
+            print("The decision is not difficult for folk of sound mind.")
+        
 
 
 def pub(royal):
@@ -132,14 +140,17 @@ def pub(royal):
     print(f"You barrel into the pub and order a flagoon of wine. Followed by another flagoon of wine. The {royal} does not seem to be in the pub, so you have another drink. You fall asleep. You awake mid-afternoon feeling sure that you had some kind of mission to fulfil.")
     print("Where next, friend?")
     pub_choice = input("The PALACE(1), CROSSROADS(2), or stay here(3)?\n")
-    if pub_choice == "1":
-        palace(royal)
-    elif pub_choice == "2":
-        crossroads()
-    elif pub_choice == "3":
-        pub_two(royal)
-    else:
-        pub_choice = input("")
+    pub_choice = ""
+    while pub_choice != "1" or "2":
+        pub_choice = input("Will ye go to the PALACE(1), the CROSSROADS(2), or stay here(3)?\n")
+        if pub_choice.strip() == "1":
+            palace(royal)
+        elif pub_choice.strip() == "2":
+            crossroads()
+        elif pub_choice.strip() == "3":
+            pub_two(royal)
+        else:
+            print("Try again...")
 
 
 def pub_two():
@@ -161,6 +172,7 @@ def pub_two():
     print("You missed your chance buddy.")
     print("You peel back your vomit-stained sheets and go back to bed.")
     print("GAME OVER.")
+    game_over()
 
 
 def crossroads():
@@ -169,9 +181,9 @@ def crossroads():
     """
     print("Lumbering down the lane, nature calls and you feel the need to relieve yourself. Will you do it in the bushes, or urinate into your own (already filthy) trousers?")
     wee_choice = input("Type [1] for in the BUSHES or [2] for WETTING YOURSELF: \n")
-    if wee_choice == "1":
+    if wee_choice.strip() == "1":
         bushes(royal)
-    elif wee_choice == "2":
+    elif wee_choice.strip() == "2":
         carriage(name, royal)
 
 
@@ -182,6 +194,7 @@ def bushes(royal):
     print(f"After doing what you have to do, you run out again toward the crossroads. In the distance the carriage rounds a bend - you're too late! Your rare thought of personal hygiene has allowed the kidnappers of the {royal} to escape.")
     print("You trudge home, vowing never again to pee outside of your own clothing.")
     print("GAME OVER.")
+    game_over()
 
 
 def carriage(name, royal):
@@ -191,12 +204,12 @@ def carriage(name, royal):
     print(f"Trousers full of wee, you, {name}, round the bend as the carriage approaches, the {royal} tied up in the back seat. You'll only have one chance to stop the carriage!")
     print("In front of you, you see a rock, a stick and a knife.")
     print("You decide to throw one implement at the kidnappers to stop them, but which will you choose...?")
-    weapon = input("Will thee toss the rock [1], the stick [2] or the knife [3]?")
-    if weapon == "1":
+    weapon = input("Will thee toss the rock [1], the stick [2] or the knife [3]? \n")
+    if weapon.strip() == "1":
         rock(royal, name)
-    elif weapon == "2":
+    elif weapon.strip() == "2":
         stick()
-    elif weapon == "3":
+    elif weapon.strip() == "3":
         knife(royal)
 
 
@@ -209,6 +222,7 @@ def rock(royal, name):
     print("A cloud of dust envelopes you as it passes, making you cough and vomit.")
     print(f"{name}, with your boss-eyed throwing style, you've blown it.")
     print("GAME OVER.")
+    game_over()
 
 
 def knife(royal):
@@ -220,6 +234,7 @@ def knife(royal):
     print("Home you stagger, dagger still stuck in your spotty head.")
     print("There'll be no rescue today.")
     print("GAME OVER.")
+    game_over()
 
 
 def stick():
@@ -227,6 +242,14 @@ def stick():
     The correct weapon, leading to a victory of some sort
     """
 
+
+def game_over():
+    """
+    Function to run when player hits a Game Over screen.
+    Restarts game
+    """
+    print("Run the game again to re-play")
+    quit()
 
 
 opening()
@@ -240,7 +263,7 @@ opening()
 # QUESTIONS:
 # Do I need to keep my lines under 80 chars? Or can I just allow them to wrap?
 # How do I end the game (using break) at Game Over points?
-# Variables (name, royal, hometown) are not *always* carrying over into new functions. What am I doing wrong? Something to do with local vs. global scope
+# Variables (name, royal, hometown) are not *always* carrying over into new functions. What am I doing wrong? Something to do with local vs. global scope - use classes!!
 # Can I use classes here..? Seems to be working without them but the code is quite basic as is. Is it enough?
 # If you don't type 1 or 2 I want the question to be re-asked, but it just breaks out (e.g. prince_princess function)
 
@@ -249,3 +272,12 @@ opening()
 # Deploy early (screenshot the method)
 # Make the words 'type' in real time (do later - it slows down testing)
 # Pauses between certain lines
+# ASCII pics (ask chatgpt?)
+
+
+# while loop OR separate function for questions so that you can re-ask questions
+# .strip() for choices 
+ # noqa at the end of long lines
+
+
+#  pp2 - remove 'onclick' from html buttons - should work. Try then send to Malia
