@@ -130,6 +130,7 @@ def yes_no(question):
 
 ## Deployment
 🚨Required
+
 screenshot each step
 see mentor insights for detailed Heroku info
 
@@ -139,6 +140,9 @@ Credits
 To avoid plagiarism amd copyright infringement, you should mention any other projects, stackoverflow, videos, blogs, etc that you used to gather imagery or ideas for your code even if you used it as a starting point and modified things. Giving credit to other people's efforts and ideas that saved you time acknowledges the hard work others did.
 
 -Code Institute Template - The Template for the GUI for this project was provided by Code Institute. This allows for the Command line to be shown and used within the browser.
+
+https://www.geeksforgeeks.org/print-colors-python-terminal/
+https://www.w3schools.com/python/python_howto_reverse_string.asp
 
 Content
 🚨Required

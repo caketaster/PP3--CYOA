@@ -1,6 +1,6 @@
 from colorama import Fore
 
-# def Player():
+# class Player:
 #     def __init__(self, name, royal, hometown):
 #         self.name = name
 #         self.hometown = hometown
@@ -35,7 +35,7 @@ def name_reverse():
     initial_name = input("Pray tell, what be thine name? \n")
     reversed_name = initial_name[::-1]
     name = reversed_name.capitalize()
-    if len(name) == 0:
+    if len(name.strip()) == 0:
         print(Fore.WHITE + "A lack of name is not a name")
         name = "Herbert"
         print("I shall call you Herbert")
@@ -53,7 +53,7 @@ def hometown(name):
     """
     print(Fore.RED + f"And, {name}, from where do you spring from? ")
     town = input("Which place do ye call home? \n")
-    if len(town) == 0:
+    if len(town.strip()) == 0:
         print(Fore.WHITE + "If you be too ashamed to tell me, I shall assume it is a terrible place, perhaps Swindon.") # noqa
         town = "Swindon"
         print("And that den of poverty and sin is the setting for our tale today...") # noqa
@@ -285,8 +285,6 @@ opening()
 # Deploy early (screenshot the method)
 # Make the words 'type' in real time (do later - it slows down testing)
 # Pauses between certain lines
-# Check if input provided - i.e. don't accept blank inputs (how?)
-# Use colour (import colorama)
 # You can make what the user enters more clear to vs the story text  and use red/yellow for correct incorrect messaging.
     # Colorama is really easy to install and then use with string based messages which you have in your program.
     # You’ll have to pip install colorama then freeze your requirements.txt again but it’s worth it.
