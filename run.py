@@ -1,10 +1,10 @@
 from colorama import Fore
 
-# class Player:
-#     def __init__(self, name, royal, hometown):
-#         self.name = name
-#         self.hometown = hometown
-#         self.royal = royal
+class Player:
+    def __init__(self, name, royal, town):
+        self.name = name
+        self.town = town
+        self.royal = royal
 
 
 name = ""
@@ -18,12 +18,25 @@ def opening():
     """
     start = input(Fore.RED + "Begin game? [Y/N]\n").lower()
     if start.strip() == 'y':
-        name_reverse()
+        player = create_player()
         hometown(name)
     else:
         print(Fore.white + "It seems you did not type 'Y'...")
         print("I'm struggling to understand why you're here if not to play.")
         opening()
+
+
+def create_player():
+    """
+    Creates an instance of the Player class 
+    to store and return the needed variables 
+    """
+    global name, town, royal
+    name = name_reverse()
+    town = hometown(name)
+    royal = prince_princess(town, name)
+    player = Player(name, royal, town)
+    first(player, royal)
 
 
 # https://www.w3schools.com/python/python_howto_reverse_string.asp
@@ -108,7 +121,7 @@ def prince_princess(town, name):
             print("Attempt to uncross thine eyes and try again.")
     
 
-def first(name, royal):
+def first(player, royal):
     """
     First choice - palace or pub
     """
@@ -118,15 +131,15 @@ def first(name, royal):
     first_choice = ""
     while first_choice.strip() != "1" or "2":
         first_choice = input(Fore.RED + "Toward the PALACE(1) or the PUB(2)? \n")
-        if first_choice.strip() == "1":
-            palace(royal)
-        elif first_choice.strip() == "2":
-            pub(royal)
+        if first_choice == "1":
+            palace(player)
+        elif first_choice == "2":
+            pub(player)
         else:
             print(Fore.WHITE + "Again your foolishness confounds me!")
             
 
-def palace(royal):
+def palace(player):
     """
     The initial palace path
     """
@@ -136,14 +149,14 @@ def palace(royal):
     while palace_choice.strip() != "1" or "2":
         palace_choice = input(Fore.RED + "Toward the CROSSROADS(1) or the PUB(2)\n")
         if palace_choice == "1":
-            crossroads()
+            crossroads(player)
         elif palace_choice == "2":
-            pub(royal)
+            pub(player)
         else:
             print(Fore.WHITE + "The decision is not difficult for folk of sound mind.")
         
 
-def pub(royal):
+def pub(player):
     """
     The initial pub path
     """
@@ -162,7 +175,7 @@ def pub(royal):
             print(Fore.WHITE + "Try again...")
 
 
-def pub_two():
+def pub_two(player):
     """
     The second Pub choice, leading to Game Over
     """
@@ -184,7 +197,7 @@ def pub_two():
     game_over()
 
 
-def crossroads():
+def crossroads(player):
     """
     The Crossroads choice, on the correct path to victory
     """
@@ -200,7 +213,7 @@ def crossroads():
             print(Fore.WHITE + "Thou do not hast time to fool around with a bladder this full")
 
 
-def bushes(royal):
+def bushes(player):
     """
     The wrong choice, leading to a GAME OVER
     """
@@ -210,7 +223,7 @@ def bushes(royal):
     game_over()
 
 
-def carriage(name, royal):
+def carriage(player):
     """
     Player has a chance to intercept the fleeing carriage
     """
@@ -230,7 +243,7 @@ def carriage(name, royal):
             print(Fore.WHITE + "The carriage is moving fast, make your choice")
 
 
-def rock(royal, name):
+def rock(player):
     """
     The wrong weapon, leading to a Game Over
     """
@@ -242,7 +255,7 @@ def rock(royal, name):
     game_over()
 
 
-def knife(royal):
+def knife(player):
     """
     The wrong weapon, leading to a Game Over
     """
