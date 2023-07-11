@@ -34,13 +34,13 @@ Happy coding!
 
 # Royal Rescue
 
-This is my PP3 Python project, a Choose Your Own Adventure [CYOA] game where the player attempts to rescue a kidnapped prince or princess. The emphasis is on (quite poor) humour. There are 3 possible good endings and 4 bad endings. 
+This is my PP3 Python project, a Choose Your Own Adventure [CYOA] game where the player attempts to rescue a kidnapped prince or princess. The emphasis is on (quite poor) humour. There are 3 possible good endings and 4 bad endings. The player enters information which is used throughout the game and makes choices to try and rescue the royal.
 
 ## Live site
 * link to live site
 
 ## Repository
-* link to github
+https://github.com/caketaster/PP3--CYOA
 
 ## Author 
 Benjamin Norman
@@ -52,13 +52,35 @@ Benjamin Norman
 The player is prompted for their name and hometown before entering the game proper. Given a series of choices, the player must navigate (predominently by choosing story paths via "1" or "2") to try and save a kidnapped prince or princess.
 
 # Features
-Each choice is a feature. List them. 
+The player is prompted for their name, which is then reversed and capitalised to be used as the player name throughout the game. If no name is submitted the game chooses a name for the player.
+
+The player is then asked for their hometown, which is used as the setting for the game. Again, if none is entered then the game chooses a setting. 
+
+The player then decides if they are rescuing a prince or a princess. This choice reflects in a few areas of the game. 
+
+The player then has to make choices to navigate through the game. There are several locations: palace, pub, crossroads, and choices at each location which define whether or not you succeed or end with a Game Over failure. There are 4 Game Over endings.
+
+In the final section the player can secure victory in 3 different ways depending on their choices. 
+
+The included flowchart details each possible choice and ending.
+
+Colorama is used to add some colour to the game, with inputs being in red, victories in green and Game Over endings in yellow.
+
+Time is used to simulate the text being typed out (so it doesn't all appear in an immediate block of text) and there are pauses between some lines. 
 
 ## Future Features
 Game expansion, colours, funky fonts etc
+In future I would like to add more levels of choices as the game currently is not hugely deep.
+
+I originally wanted to include an element of randomness (dice throws) with buffs or debuffs depending on which weapon a player had chosen, but discarded this idea for reasons of complexity and time. 
+
+I would like to add more ASCII art to the game, as it's currently only text. ASCII pictures would add to the visual element. 
+
 
 ## Flow Chart
-insert here
+I used LucidChart to create a flowchart of the game showing all instances of information collection (orange boxes), choices (in diamond-shaped boxes), Game Over endings (margined boxes) and victories (standard boxes)
+
+![lucidchart flowchart](images/lucidchart.png)
 
 # Classes
 see readme from Malia
@@ -129,15 +151,29 @@ def yes_no(question):
     return answer
 
 ## Deployment
-🚨Required
 
-screenshot each step
-see mentor insights for detailed Heroku info
+The app was deployed to Heroku using the following steps:
 
-Credits
-🚨Required
+Create new app <br>
+![deployment step 1](images/deploy1.jpg)
 
-To avoid plagiarism amd copyright infringement, you should mention any other projects, stackoverflow, videos, blogs, etc that you used to gather imagery or ideas for your code even if you used it as a starting point and modified things. Giving credit to other people's efforts and ideas that saved you time acknowledges the hard work others did.
+Add buildpacks and config VARS <br>
+![deployment step 2](images/deploy2.jpg)
+
+Connect Heroku to GitHub<br>
+![deployment step 3](images/deploy3.jpg)
+
+Authorise the connection<br>
+![deployment step 4](images/deploy4.jpg)
+
+Connect to the correct repository<br>
+![deployment step 5](images/deploy5.jpg)
+
+Enable automatic deploys from the repository<br>
+![deployment step 6](images/deploy6.jpg)
+
+
+# Credits
 
 -Code Institute Template - The Template for the GUI for this project was provided by Code Institute. This allows for the Command line to be shown and used within the browser.
 

@@ -1,6 +1,11 @@
 from colorama import Fore
 
+
 class Player:
+    """
+    Creates a class of Player with the required
+    variables to play the game
+    """
     def __init__(self, name, royal, town):
         self.name = name
         self.town = town
@@ -19,24 +24,11 @@ def opening():
     start = input(Fore.RED + "Begin game? [Y/N]\n").lower()
     if start.strip() == 'y':
         player = create_player()
-        hometown(name)
+        name_reverse()
     else:
-        print(Fore.white + "It seems you did not type 'Y'...")
+        print(Fore.WHITE + "It seems you did not type 'Y'...")
         print("I'm struggling to understand why you're here if not to play.")
         opening()
-
-
-def create_player():
-    """
-    Creates an instance of the Player class 
-    to store and return the needed variables 
-    """
-    global name, town, royal
-    name = name_reverse()
-    town = hometown(name)
-    royal = prince_princess(town, name)
-    player = Player(name, royal, town)
-    first(player, royal)
 
 
 # https://www.w3schools.com/python/python_howto_reverse_string.asp
@@ -52,8 +44,8 @@ def name_reverse():
         print(Fore.WHITE + "A lack of name is not a name")
         name = "Herbert"
         print("I shall call you Herbert")
-    else: 
-        print(Fore.WHITE + f"Hmm, {initial_name}... a weak and poor name, make no mistake.")
+    else:
+        print(Fore.WHITE + f"Hmm, {initial_name}... a weak and poor name, make no mistake.") # noqa
         print(f"I shall call you {name}, 'tis far better!")
     hometown(name)
     return name
@@ -71,9 +63,9 @@ def hometown(name):
         town = "Swindon"
         print("And that den of poverty and sin is the setting for our tale today...") # noqa
         print("")
-    else: 
-        print(Fore.WHITE + f"{town}! A vile place full of inbred and ugly folk!")
-        print("And by coincidence the setting for our tale today...") 
+    else:
+        print(Fore.WHITE + f"{town}! A vile place full of inbred and ugly folk!") # noqa
+        print("And by coincidence the setting for our tale today...")
         print("")
     prince_princess(town, name)
     return town
@@ -119,9 +111,22 @@ def prince_princess(town, name):
         else:
             print("Your chubby peasantly fingers have missed the relevant keys. ") # noqa
             print("Attempt to uncross thine eyes and try again.")
-    
 
-def first(player, royal):
+
+def create_player():
+    """
+    Creates an instance of the Player class
+    to store and return the needed variables
+    """
+    global name, town, royal
+    name = name_reverse()
+    town = hometown(name)
+    royal = prince_princess(town, name)
+    player = Player(name, royal, town)
+    return player
+
+
+def first():
     """
     First choice - palace or pub
     """
@@ -130,7 +135,7 @@ def first(player, royal):
     print(Fore.RED + "In which direction will you turn?")
     first_choice = ""
     while first_choice.strip() != "1" or "2":
-        first_choice = input(Fore.RED + "Toward the PALACE(1) or the PUB(2)? \n")
+        first_choice = input(Fore.RED + "Toward the PALACE(1) or the PUB(2)? \n") # noqa
         if first_choice == "1":
             palace(player)
         elif first_choice == "2":
@@ -147,13 +152,13 @@ def palace(player):
     print(Fore.RED + "Where dost thou wish to turn?")
     palace_choice = ""
     while palace_choice.strip() != "1" or "2":
-        palace_choice = input(Fore.RED + "Toward the CROSSROADS(1) or the PUB(2)\n")
+        palace_choice = input(Fore.RED + "Toward the CROSSROADS(1) or the PUB(2)\n") # noqa
         if palace_choice == "1":
             crossroads(player)
         elif palace_choice == "2":
             pub(player)
         else:
-            print(Fore.WHITE + "The decision is not difficult for folk of sound mind.")
+            print(Fore.WHITE + "The decision is not difficult for folk of sound mind.") # noqa
         
 
 def pub(player):
@@ -210,7 +215,7 @@ def crossroads(player):
         elif wee_choice.strip() == "2":
             carriage(name, royal)
         else:
-            print(Fore.WHITE + "Thou do not hast time to fool around with a bladder this full")
+            print(Fore.WHITE + "Thou do not hast time to fool around with a bladder this full") # noqa
 
 
 def bushes(player):
@@ -227,7 +232,7 @@ def carriage(player):
     """
     Player has a chance to intercept the fleeing carriage
     """
-    print(Fore.WHITE + f"Trousers full of wee, you, {name}, round the bend as the carriage approaches, the {royal} tied up in the back seat. You'll only have one chance to stop the carriage!") # noqa
+    print(Fore.WHITE + f"Trousers full of wee, you, {name}, round the bend as the stagecoach approaches, the {royal} tied up in the back seat. You'll only have one chance to stop the carriage!") # noqa
     print("In front of you, you see a rock, a stick and a knife.")
     print("You decide to throw one implement at the kidnappers to stop them, but which will you choose...?") # noqa
     weapon = ""
@@ -247,9 +252,9 @@ def rock(player):
     """
     The wrong weapon, leading to a Game Over
     """
-    print(Fore.WHITE + f"You clumsily hurl the rock carriageward. It passes between the heads of the kidnappers and strikes the {royal} clean between the eyes!")
-    print("The carriage barrels into the distance, the comatose royal lolling side to side in the rear.")
-    print("A cloud of dust envelopes you as it passes, making you cough and vomit.")
+    print(Fore.WHITE + f"You clumsily hurl the rock carriageward. It passes between the heads of the kidnappers and strikes the {royal} clean between the eyes!") # noqa
+    print("The carriage barrels into the distance, the comatose royal lolling side to side in the rear.") # noqa
+    print("A cloud of dust envelopes you as it passes, making you cough and vomit.") # noqa
     print(f"{name}, with your boss-eyed throwing style, you've blown it.")
     print(Fore.YELLOW + "GAME OVER.")
     game_over()
@@ -271,6 +276,37 @@ def stick():
     """
     The correct weapon, leading to a victory of some sort
     """
+    print(f"The stick spins through the air, bounces and flies between the spokes of the stagecoach's front wheel. The stagecoach swerves violently, throwing the kidnappers into the bushes. As it wobbles to a halt, the {royal} steps gingerly from the carriage and sizes you up.") # noqa
+    print(f"You annouce yourself, 'I am {name} from the parish of {town}, pleased to rescue you.' The {royal} knows that they're going to have to dish out a reward.") # noqa
+    reward = ""
+    while reward != "1" or "2":
+        reward = input(Fore.RED + "Will you ask for a bag or golden coins [1], or a kiss [2] on the face?") # noqa
+        if reward.strip() == "1":
+            print(f"The {royal} digs around in their pocket and pulls out a bag of coins. They hand it to you without a word, dust themselves down and start the long walk back toward the palace.") # noqa
+            print("You're rich beyond your wildest dreams. Already your head is swimming with ideas on upgrading your hovel and buying a second set of trousers.") # noqa
+            print("You wander home, smiling happily")
+            print(Fore.GREEN + "THE END")
+        elif reward.strip() == "2":
+            print(f"You pucker up and lean in. The horrified {royal} staggers back, clasping at the air.") # noqa
+            print(f"The {royal} empties their pockets, pulling out two large bags of gold coins.") # noqa
+            reward_two = ""
+            while reward_two != "1" or "2":
+                reward_two = input(Fore.RED + "Will ye accept the money [1] or insist on a kiss [2]?") # noqa
+                if reward_two == "1":
+                    print(f"The {royal} gladly shoves the bags into your sweaty hands and runs off before you change your mind.") # noqa
+                    print("You're rich beyond double what you could dream. Already you're dreaming of a whole new set of clothes, a larger hovel, and maybe a BMW. Although you regret not having a snog, you're happier than you've ever been.") # noqa
+                    print(Fore.GREEN + "THE END")
+                    quit()
+                elif reward_two == "2":
+                    print(f"The {royal}'s face contorts with disgust, but they dutifully lean in to meet your scabby mouth. You touch lips. Before you've even had a chance to really enjoy the kiss they're reeling back, coughing and wiping their face, before turning tail and running toward the palace.") # noqa
+                    print("Even though it was short, you enjoyed what was your first kiss (unless you count that time with the homeless dog) and have never been happier.") # noqa
+                    print("You float home on a cloud of joy.")
+                    print(Fore.GREEN + "THE END")
+                    quit()
+                else:
+                    print("Do not let your joy get the better of you, steady yourself and choose one of the two options available.") # noqa
+        else:
+            print("On offer: money or possible love. What will ye decide?")
 
 
 def game_over():
@@ -285,10 +321,7 @@ def game_over():
 opening()
 
 
-
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
-
-
 
 # QUESTIONS:
 # Variables (name, royal, hometown) are not *always* carrying over into new functions. What am I doing wrong? Something to do with local vs. global scope - use classes!!
@@ -312,7 +345,6 @@ opening()
     # https://convertcase.net/ascii-art-generator/ works pretty well for gray scale,
 
     # this one works for color images: https://www.meridianoutpost.com/resources/etools/calculators/downloader-ascii-art.php 
-
 
 
 # while loop OR separate function for questions so that you can re-ask questions  OK
