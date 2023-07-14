@@ -303,9 +303,9 @@ class AdventureGame:
         Creates an instance of the Player class
         to store and return the needed variables
         """
-        self.name = self.name_reverse()
-        self.town = self.hometown()
-        self.royal = self.prince_princess()
+        self.name_reverse()
+        self.hometown()
+        self.prince_princess()
 
     def first(self):
         """
@@ -325,11 +325,11 @@ class AdventureGame:
         print()
         print(Fore.RED + "In which direction will you turn?")
         first_choice = ""
-        while first_choice.strip() != "1" or "2":
+        while first_choice != "1" or "2":
             first_choice = input(Fore.RED + "Toward the PALACE(1) or the PUB(2)? \n")  # noqa
-            if first_choice == "1":
+            if first_choice.strip() == "1":
                 self.palace()
-            elif first_choice == "2":
+            elif first_choice.strip() == "2":
                 self.pub()
             else:
                 s3 = Fore.WHITE + "Again your foolishness confounds me!"
