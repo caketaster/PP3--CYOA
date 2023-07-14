@@ -34,13 +34,13 @@ Happy coding!
 
 # Royal Rescue
 
-This is my PP3 Python project, a Choose Your Own Adventure [CYOA] game where the player attempts to rescue a kidnapped prince or princess. The emphasis is on (quite poor) humour. There are 3 possible good endings and 4 bad endings. The player enters information which is used throughout the game and makes choices to try and rescue the royal.
+This is my PP3 Python project, a Choose Your Own Adventure [CYOA] game where the player attempts to rescue a kidnapped prince or princess. The emphasis is on (quite poor) humour. There are 3 possible good endings and 4 bad endings. The player enters information which is used throughout the game and makes choices to try and rescue the royal. 
 
 ## Live site
-* link to live site
+[Live Site](https://royal-rescue-7269264d21cc.herokuapp.com/)
 
 ## Repository
-https://github.com/caketaster/PP3--CYOA
+[GitHub repository](https://github.com/caketaster/PP3--CYOA)
 
 ## Author 
 Benjamin Norman
@@ -56,25 +56,35 @@ The player is prompted for their name, which is then reversed and capitalised to
 
 The player is then asked for their hometown, which is used as the setting for the game. Again, if none is entered then the game chooses a setting. 
 
-The player then decides if they are rescuing a prince or a princess. This choice reflects in a few areas of the game. 
+The player then decides if they are rescuing a prince or a princess. This choice reflects minor changes in a few areas of the game. 
 
-The player then has to make choices to navigate through the game. There are several locations: palace, pub, crossroads, and choices at each location which define whether or not you succeed or end with a Game Over failure. There are 4 Game Over endings.
+The player then has to make choices to navigate through the game. There are several locations: palace, pub, crossroads, and choices at each location which define whether or not you succeed or end with a Game Over failure. 
 
-In the final section the player can secure victory in 3 different ways depending on their choices. 
+At the Palace, the player can choose to go towards the Pub or the Crossroads.
+At the Pub the player can turn towards the Palace, Crossroads, or stay in the Pub.
+On the way to the Crossroads the player must decide whether to take a toilet break or continue on.
+At the Crossroads the player must choose which implement to use to try and save the royal.
+If the correct implement is chosen, the player must choose their reward: a kiss or some money.
+If a kiss is chosen, more money is offered. The player must decide whether to accept the money or insist on the kiss. 
+
+There are 4 Game Over endings.
+The player can secure victory in 3 different ways depending on their choices. 
 
 The included flowchart details each possible choice and ending.
 
-Colorama is used to add some colour to the game, with inputs being in red, victories in green and Game Over endings in yellow.
+Pyfiglet is used to add an ASCII title to the game.
+
+Colorama is used to add some colour to the game, with inputs given in RED, Game Over messages in YELLOW and victories in GREEN.
 
 Time is used to simulate the text being typed out (so it doesn't all appear in an immediate block of text) and there are pauses between some lines. 
 
+
 ## Future Features
-Game expansion, colours, funky fonts etc
 In future I would like to add more levels of choices as the game currently is not hugely deep.
 
 I originally wanted to include an element of randomness (dice throws) with buffs or debuffs depending on which weapon a player had chosen, but discarded this idea for reasons of complexity and time. 
 
-I would like to add more ASCII art to the game, as it's currently only text. ASCII pictures would add to the visual element. 
+I would like to add more ASCII art to the game, as it's currently all text within the game itself. ASCII pictures would add to the visual element. 
 
 
 ## Flow Chart
@@ -83,7 +93,7 @@ I used LucidChart to create a flowchart of the game showing all instances of inf
 ![lucidchart flowchart](images/lucidchart.png)
 
 # Classes
-see readme from Malia
+I used one class in the game, with the game itself as the class. All methods use self and all parameters are also self. 
 
 ## Libraries Used
 time, colorama etc
@@ -96,28 +106,36 @@ https://pep8ci.herokuapp.com/
 Note any errors or warnings you are ignoring and why.
 
 # Manual Testing
-Use Markdown to track how you tested each bit of user input for each valid option, various invalid entries and leading/trailing spaces
+    Use Markdown to track how you tested each bit of user input for each valid option, various invalid entries and leading/trailing spaces
 
-Feature 1
+    Feature 1
 
- invalid entry, says sorry and re-prompts
- no entry, says sorry and re-prompts
- alpha when numeric expected, sorry and re-prompts
- valid entry with leading spaces, trimmed and shows proper next stage
- valid entry with trailing spaces, trimmed and shows proper next stage
-You should also call out how you tested any other features such as:
+    invalid entry, says sorry and re-prompts
+    no entry, says sorry and re-prompts
+    alpha when numeric expected, sorry and re-prompts
+    valid entry with leading spaces, trimmed and shows proper next stage
+    valid entry with trailing spaces, trimmed and shows proper next stage
+    You should also call out how you tested any other features such as:
 
-Welcome Message, recaps username
-Score update shows current score
-color change for correct vs incorrect
+    Welcome Message, recaps username
+    Score update shows current score
+    color change for correct vs incorrect
 
-If you prefer spreadsheets, create a google-sheet and link to it in this section, just make sure you update the permissions to allow anyone to view it. You can make a COPY of this example and update it as your own. Just make sure you share it to anyone with the link: https://docs.google.com/spreadsheets/d/1w_JUmFfzHVtXdHse6ib82BGnRMPlPqufSOnAVN3bVl8/edit?usp=sharing
+    If you prefer spreadsheets, create a google-sheet and link to it in this section, just make sure you update the permissions to allow anyone to view it. You can make a COPY of this example and update it as your own. Just make sure you share it to anyone with the link: https://docs.google.com/spreadsheets/d/1w_JUmFfzHVtXdHse6ib82BGnRMPlPqufSOnAVN3bVl8/edit?usp=sharing
+
+When prompted to start the game, any stripped input other than Y/y will re-prompt the player to start the game.
+
+When asked for their name, a completely blank input will result in a name being assigned to the player.
+
+When asked for their hometown, a completely blank input will result in a town [location] being assigned to the player.
+
+In the majority of further choices [generally a choice of "1“ or ”2“] blank spaces are stripped and any choice other than the prescribed "1", "2" or occasionally "3" will result in the question being re-asked. 
 
 ## Defect Tracking
 
-Try to create issues in real time as it better reflects the daily life of a developer.
+    Try to create issues in real time as it better reflects the daily life of a developer.
 
-The easiest way to track defects is by using GITHUB's Issues to track these as it's really easy to copy/paste screenshots in and then write up how you closed them. At this stage you don't need a custom template or labels, that comes in P4.
+    The easiest way to track defects is by using GITHUB's Issues to track these as it's really easy to copy/paste screenshots in and then write up how you closed them. At this stage you don't need a custom template or labels, that comes in P4.
 
 ## Outstanding Defects
 

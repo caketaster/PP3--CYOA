@@ -1,3 +1,4 @@
+# Import relevant libraries and modules
 from colorama import Fore
 import sys
 import time
@@ -9,7 +10,6 @@ class AdventureGame:
     Creates a class of Player with the required
     variables to play the game
     """
-
     def __init__(self):
         self.name = ""
         self.town = ""
@@ -28,7 +28,7 @@ class AdventureGame:
             for character in s:
                 sys.stdout.write(character)
                 sys.stdout.flush()
-                time.sleep(0.06)    
+                time.sleep(0.06)
             time.sleep(0.5)
             s = "I'm struggling to understand why you're here if not to play."
             for character in s:
@@ -64,7 +64,7 @@ class AdventureGame:
                 time.sleep(0.06)
             print()
         else:
-            s2 = Fore.WHITE + f"Hmm, {initial_name}... a weak and poor name, make no mistake."  # noqa
+            s2 = Fore.WHITE + f"Hmm, {initial_name}... a weak and poor name, make no mistake." # noqa
             for character in s2:
                 sys.stdout.write(character)
                 sys.stdout.flush()
@@ -93,7 +93,7 @@ class AdventureGame:
         print()
         self.town = input("Which place do ye call home? \n")
         if len(self.town.strip()) == 0:
-            s2 = Fore.WHITE + "If you be too ashamed to tell me, I shall assume it is a terrible place, perhaps Swindon."  # noqa
+            s2 = Fore.WHITE + "If you be too ashamed to tell me, I shall assume it is a terrible place, perhaps Swindon." # noqa
             for character in s2:
                 sys.stdout.write(character)
                 sys.stdout.flush()
@@ -138,7 +138,7 @@ class AdventureGame:
             time.sleep(0.06)
         print()
         time.sleep(0.5)
-        s2 = f"You, {self.name}, roll from your filthy woven mattress and pull your unwashed rags over your unwashed head. Lice scatter."  # noqa
+        s2 = f"You, {self.name}, roll from your filthy woven mattress and pull your unwashed rags over your unwashed head. Lice scatter." # noqa
         for character in s2:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -178,7 +178,7 @@ class AdventureGame:
         print()
         royal_choice = ""
         while royal_choice.strip() != "1" or "2":
-            royal_choice = input(Fore.RED + "Is the kidnapped royal a PRINCE(1) or a PRINCESS(2)? \n")  # noqa
+            royal_choice = input(Fore.RED + "Is the kidnapped royal a PRINCE(1) or a PRINCESS(2)? \n") # noqa
             if royal_choice.strip() == "1":
                 self.royal = "prince"
                 s = Fore.WHITE + 'The newspaper reads: '
@@ -311,7 +311,7 @@ class AdventureGame:
         """
         First choice - palace or pub
         """
-        s = f"So it is decided that YOU, {self.name}, will rescue the {self.royal}."
+        s = f"So it is decided that YOU, {self.name}, will rescue the {self.royal}." # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -333,7 +333,7 @@ class AdventureGame:
                 self.pub()
             else:
                 s3 = Fore.WHITE + "Again your foolishness confounds me!"
-                for character in s:
+                for character in s3:
                     sys.stdout.write(character)
                     sys.stdout.flush()
                     time.sleep(0.06)
@@ -343,7 +343,7 @@ class AdventureGame:
         """
         The initial palace path
         """
-        s = Fore.WHITE + f"Let's face it, if the {self.royal} was at the palace they wouldn't be missing, would they? Cursing your lack of intelligence, you sit down for a while to think. There's a chance the kidnappers might have taken the {self.royal} away in a stagecoach, so the logical thing would be to go to the CROSSROADS and search. But on the other hand you haven't had any ale or mead for what feels like hours, and there's a very slim chance the {self.royal} might have just slipped out for a cheeky gin and soda."  # noqa
+        s = Fore.WHITE + f"Let's face it, if the {self.royal} was at the palace they wouldn't be missing, would they? Cursing your lack of intelligence, you sit down for a while to think. There's a chance the kidnappers might have taken the {self.royal} away in a stagecoach, so the logical thing would be to go to the CROSSROADS and search. But on the other hand you haven't had any ale or mead for what feels like hours, and there's a very slim chance the {self.royal} might have just slipped out for a cheeky gin and soda." # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -369,7 +369,7 @@ class AdventureGame:
         """
         The initial pub path
         """
-        s = Fore.WHITE + f"You barrel into the pub and order a flagoon of wine. Followed by another flagoon of wine. The {self.royal} does not seem to be in the pub, so you have another drink. You fall asleep. You awake mid-afternoon feeling sure that you had some kind of mission to fulfil."  # noqa
+        s = Fore.WHITE + f"You barrel into the pub and order a flagoon of wine. Followed by another flagoon of wine. The {self.royal} does not seem to be in the pub, so you have another drink. You fall asleep. You awake mid-afternoon feeling sure that you had some kind of mission to fulfil." # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -379,7 +379,7 @@ class AdventureGame:
         print(Fore.RED + "Where next, friend?")
         pub_choice = ""
         while pub_choice != "1" or "2":
-            pub_choice = input(Fore.RED + "Will ye go to the PALACE(1), the CROSSROADS(2), or stay here(3)?\n")  # noqa
+            pub_choice = input(Fore.RED + "Will ye go to the PALACE(1), the CROSSROADS(2), or stay here(3)?\n") # noqa
             if pub_choice.strip() == "1":
                 self.palace()
             elif pub_choice.strip() == "2":
@@ -490,7 +490,6 @@ class AdventureGame:
         print(Fore.YELLOW + "GAME OVER.")
         self.game_over()
 
-
     def crossroads(self):
         """
         The Crossroads choice, on the correct path to victory
@@ -503,13 +502,13 @@ class AdventureGame:
         print()
         wee_choice = ""
         while wee_choice.strip() != "1" or "2":
-            wee_choice = input(Fore.RED + "Type [1] for in the BUSHES or [2] for WETTING YOURSELF: \n")  # noqa
+            wee_choice = input(Fore.RED + "Type [1] for in the BUSHES or [2] for WETTING YOURSELF: \n") # noqa
             if wee_choice.strip() == "1":
                 self.bushes()
             elif wee_choice.strip() == "2":
                 self.carriage()
             else:
-                s1 = Fore.WHITE + "Thou do not hast time to fool around with a bladder this full"  # noqa
+                s1 = Fore.WHITE + "Thou do not hast time to fool around with a bladder this full" # noqa
                 for character in s1:
                     sys.stdout.write(character)
                     sys.stdout.flush()
@@ -520,14 +519,14 @@ class AdventureGame:
         """
         The wrong choice, leading to a GAME OVER
         """
-        s = Fore.WHITE + f"After doing what you have to do, you run out again toward the crossroads. In the distance the carriage rounds a bend - you're too late! Your rare thought of personal hygiene has allowed the kidnappers of the {self.royal} to escape."  # noqa
+        s = Fore.WHITE + f"After doing what you have to do, you run out again toward the crossroads. In the distance the carriage rounds a bend - you're too late! Your rare thought of personal hygiene has allowed the kidnappers of the {self.royal} to escape." # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
             time.sleep(0.06)
         print()
         time.sleep(0.5)
-        s1 = Fore.WHITE + "You trudge home, vowing never again to pee outside of your own clothing."  # noqa
+        s1 = Fore.WHITE + "You trudge home, vowing never again to pee outside of your own clothing." # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -541,7 +540,7 @@ class AdventureGame:
         """
         Player has a chance to intercept the fleeing carriage
         """
-        s = Fore.WHITE + f"Trousers full of wee, you, {self.name}, round the bend as the stagecoach approaches, the {self.royal} tied up in the back seat. You'll only have one chance to stop the carriage!"  # noqa 
+        s = Fore.WHITE + f"Trousers full of wee, you, {self.name}, round the bend as the stagecoach approaches, the {self.royal} tied up in the back seat. You'll only have one chance to stop the carriage!" # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -554,7 +553,7 @@ class AdventureGame:
             sys.stdout.flush()
             time.sleep(0.06)
         print()
-        s2 = "You have time to throw but one implement at the kidnappers to stop them, but which will you choose...?"  # noqa
+        s2 = "You have time to throw but one implement at the kidnappers to stop them, but which will you choose...?" # noqa
         for character in s2:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -562,7 +561,7 @@ class AdventureGame:
         print()
         weapon = ""
         while weapon != "1" or "2" or "3":
-            weapon = input(Fore.RED + "Will thee toss the ROCK [1], the STICK [2] or the KNIFE [3]? \n")  # noqa
+            weapon = input(Fore.RED + "Will thee toss the ROCK [1], the STICK [2] or the KNIFE [3]? \n") # noqa
             if weapon.strip() == "1":
                 self.rock()
             elif weapon.strip() == "2":
@@ -570,8 +569,8 @@ class AdventureGame:
             elif weapon.strip() == "3":
                 self.knife()
             else:
-                s5 = Fore.WHITE + "The carriage is moving fast, make your choice"
-                for character in s:
+                s5 = Fore.WHITE + "The carriage is moving fast, make your choice" # noqa
+                for character in s5:
                     sys.stdout.write(character)
                     sys.stdout.flush()
                     time.sleep(0.06)
@@ -581,14 +580,14 @@ class AdventureGame:
         """
         The wrong weapon, leading to a Game Over
         """
-        s = Fore.WHITE + f"You clumsily hurl the rock carriageward. It passes between the heads of the kidnappers and strikes the {self.royal} clean between the eyes!"  # noqa
+        s = Fore.WHITE + f"You clumsily hurl the rock carriageward. It passes between the heads of the kidnappers and strikes the {self.royal} clean between the eyes!" # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
             time.sleep(0.06)
         print()
         time.sleep(0.5)
-        s1 = "The carriage barrels into the distance, the comatose royal lolling side to side in the rear."  # noqa
+        s1 = "The carriage barrels into the distance, the comatose royal lolling side to side in the rear." # noqa
         for character in s1:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -600,7 +599,7 @@ class AdventureGame:
             sys.stdout.flush()
             time.sleep(0.06)
         print()
-        s3 = f"{self.name}, with your boss-eyed throwing style, you've blown it."
+        s3 = f"{self.name}, with your boss-eyed throwing style, {self.name} you've blown it." # noqa
         for character in s3:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -614,14 +613,14 @@ class AdventureGame:
         """
         The wrong weapon, leading to a Game Over
         """
-        s = Fore.WHITE + "You leap, shrieking and brandishing the knife! But as you pull back the blade to hurl carriageward you embed it in your own bulbous forehead."  # noqa
+        s = Fore.WHITE + "You leap, shrieking and brandishing the knife! But as you pull back the blade to hurl carriageward you embed it in your own bulbous forehead." # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
             time.sleep(0.06)
         print()
         time.sleep(0.5)
-        s1 = f"You slump to the ground as the kidnappers' carriage bearing the {self.royal} steams past."  # noqa
+        s1 = f"You slump to the ground as the kidnappers' carriage bearing the {self.royal} steams past." # noqa
         for character in s1:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -648,13 +647,13 @@ class AdventureGame:
         """
         The correct weapon, leading to a victory of some sort
         """
-        s = Fore.WHITE + f"The stick spins through the air, bounces and flies between the spokes of the stagecoach's front wheel. The stagecoach swerves violently, throwing the kidnappers into the bushes. As it wobbles to a halt, the {self.royal} steps gingerly from the carriage and sizes you up."  # noqa
+        s = Fore.WHITE + f"The stick spins through the air, bounces and flies between the spokes of the stagecoach's front wheel. The stagecoach swerves violently, throwing the kidnappers into the bushes. As it wobbles to a halt, the {self.royal} steps gingerly from the carriage and sizes you up." # noqa
         for character in s:
             sys.stdout.write(character)
             sys.stdout.flush()
             time.sleep(0.06)
         print()
-        s1 = f"You annouce yourself, 'I am {self.name} from the parish of {self.town}, pleased to rescue you.' The {self.royal} knows that they're going to have to dish out a reward."  # noqa
+        s1 = f"You annouce yourself, 'I am {self.name} from the parish of {self.town}, pleased to rescue you.' The {self.royal} knows that they're going to have to dish out a reward." # noqa
         for character in s1:
             sys.stdout.write(character)
             sys.stdout.flush()
@@ -662,16 +661,16 @@ class AdventureGame:
         print()
         reward = ""
         while reward != "1" or "2":
-            reward = input(Fore.RED + "Will you ask for a BAG OF GOLDEN COINS [1], or a KISS [2] on the face? \n")  # noqa
+            reward = input(Fore.RED + "Will you ask for a BAG OF GOLDEN COINS [1], or a KISS [2] on the face? \n") # noqa
             if reward.strip() == "1":
-                s3 = f"The {self.royal} digs around in their pocket and pulls out a bag of coins. They hand it to you without a word, dust themselves down and start the long walk back toward the palace."  # noqa
+                s3 = f"The {self.royal} digs around in their pocket and pulls out a bag of coins. They hand it to you without a word, dust themselves down and start the long walk back toward the palace." # noqa
                 for character in s3:
                     sys.stdout.write(character)
                     sys.stdout.flush()
                     time.sleep(0.06)
                 print()
                 time.sleep(0.5)
-                s4 = "You're rich beyond your wildest dreams. Already your head is swimming with ideas on upgrading your hovel and buying a second set of trousers."  # noqa
+                s4 = "You're rich beyond your wildest dreams. Already your head is swimming with ideas on upgrading your hovel and buying a second set of trousers." # noqa
                 for character in s4:
                     sys.stdout.write(character)
                     sys.stdout.flush()
@@ -687,14 +686,14 @@ class AdventureGame:
                 time.sleep(1)
                 print(Fore.GREEN + "THE END")
             elif reward.strip() == "2":
-                s6 = f"You pucker up and lean in. The horrified {self.royal} staggers back, clasping at the air."  # noqa
+                s6 = f"You pucker up and lean in. The horrified {self.royal} staggers back, clasping at the air." # noqa
                 for character in s6:
                     sys.stdout.write(character)
                     sys.stdout.flush()
                     time.sleep(0.06)
                 print()
                 time.sleep(0.5)
-                s7 = f"The {self.royal} empties their pockets, pulling out two large bags of gold coins."  # noqa
+                s7 = f"The {self.royal} empties their pockets, pulling out two large bags of gold coins." # noqa
                 for character in s7:
                     sys.stdout.write(character)
                     sys.stdout.flush()
@@ -702,16 +701,16 @@ class AdventureGame:
                 print()
                 reward_two = ""
                 while reward_two != "1" or "2":
-                    reward_two = input(Fore.RED + "Will ye accept the MONEY [1] or insist on a KISS [2]?\n")  # noqa
+                    reward_two = input(Fore.RED + "Will ye accept the MONEY [1] or insist on a KISS [2]?\n") # noqa
                     if reward_two.strip() == "1":
-                        s8 = f"The {self.royal} gladly shoves the bags into your sweaty hands and runs off before you change your mind."  # noqa
+                        s8 = f"The {self.royal} gladly shoves the bags into your sweaty hands and runs off before you change your mind." # noqa
                         for character in s8:
                             sys.stdout.write(character)
                             sys.stdout.flush()
                             time.sleep(0.06)
                         print()
                         time.sleep(0.5)
-                        s9 = "You're rich beyond double what you could dream. Already you're dreaming of a whole new set of clothes, a larger hovel, and maybe a BMW. Although you regret not having a snog, you're happier than you've ever been."  # noqa
+                        s9 = "You're rich beyond double what you could dream. Already you're dreaming of a whole new set of clothes, a larger hovel, and maybe a BMW. Although you regret not having a snog, you're happier than you've ever been." # noqa
                         for character in s9:
                             sys.stdout.write(character)
                             sys.stdout.flush()
@@ -721,14 +720,14 @@ class AdventureGame:
                         print(Fore.GREEN + "THE END")
                         quit()
                     elif reward_two.strip() == "2":
-                        s10 = f"The {self.royal}'s face contorts with disgust, but they dutifully lean in to meet your scabby mouth. You touch lips. Before you've even had a chance to really enjoy the kiss they're reeling back, coughing and wiping their face, before turning tail and running toward the palace."  # noqa
+                        s10 = f"The {self.royal}'s face contorts with disgust, but they dutifully lean in to meet your scabby mouth. You touch lips. Before you've even had a chance to really enjoy the kiss they're reeling back, coughing and wiping their face, before turning tail and running toward the palace." # noqa
                         for character in s10:
                             sys.stdout.write(character)
                             sys.stdout.flush()
                             time.sleep(0.06)
                         print()
                         time.sleep(0.5)
-                        s11 = "Even though it was short, you enjoyed what was your first kiss (unless you count that time with the homeless dog) and have never been happier."  # noqa
+                        s11 = "Even though it was short, you enjoyed what was your first kiss (unless you count that time with the homeless dog) and have never been happier." # noqa
                         for character in s11:
                             sys.stdout.write(character)
                             sys.stdout.flush()
@@ -745,7 +744,7 @@ class AdventureGame:
                         print(Fore.GREEN + "THE END")
                         quit()
                     else:
-                        s13 = "Do not let your joy get the better of you, steady yourself and choose one of the two options available."  # noqa
+                        s13 = "Do not let your joy get the better of you, steady yourself and choose one of the two options available." # noqa
                         for character in s13:
                             sys.stdout.write(character)
                             sys.stdout.flush()
@@ -780,8 +779,8 @@ def main():
 
 title1 = pyfiglet.figlet_format("Royal")
 title2 = pyfiglet.figlet_format("Rescue")
-print(title1)
-print(title2)
+print(Fore.BLUE + title1)
+print(Fore.BLUE + title2)
 
 s = Fore.WHITE + "Ah, a new player."
 for character in s:
@@ -791,45 +790,3 @@ for character in s:
 print()
 time.sleep(1)
 main()
-
-# Use of time for pauses between sentences
-# Writing a Text-Based Adventure Game in Python 
-# https://www.youtube.com/watch?v=miuHrP2O7Jw&t=91s&ab_channel=DougMcNally
-
-# Words 'type-out'
-# Simple Python Project _ Text-Based Adventure Game_ Time Unraveled
-# https://www.youtube.com/watch?v=ypNFNr72Xe8&t=229s&ab_channel=CompSciCentral
-
-
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-
-# QUESTIONS:
-# Variables (name, royal, hometown) are not *always* carrying over into new functions. What am I doing wrong? Something to do with local vs. global scope - use classes!!
-
-
-# TO DO:
-# Deploy early (screenshot the method)
-# Make the words 'type' in real time (do later - it slows down testing)
-# Pauses between certain lines
-# You can make what the user enters more clear to vs the story text  and use red/yellow for correct incorrect messaging.
-    # Colorama is really easy to install and then use with string based messages which you have in your program.
-    # You’ll have to pip install colorama then freeze your requirements.txt again but it’s worth it.
-    # Here’s an article about color in python, jump to the colorama bit:
-    # https://www.geeksforgeeks.org/print-colors-python-terminal/
-# Use fancy fonts for welcome and good bye
-    # Here’s an article about fancy fonts in python: https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/
-    # You basically install pyfiglet and it can make your letters bubbly and stand out more.
-# ASCII art
-    # Search for ascii art generator from image and you will get lots of results on how to convert images to ascii art. It might help you add some graphic components potentially. I’d save any ascii_art into an ascii_art.py file and import them as needed so they don’t mess up your main run.py file.
-
-    # https://convertcase.net/ascii-art-generator/ works pretty well for gray scale,
-
-    # this one works for color images: https://www.meridianoutpost.com/resources/etools/calculators/downloader-ascii-art.php 
-
-
-# while loop OR separate function for questions so that you can re-ask questions  OK
-# .strip() for choices   OK
- # noqa at the end of long lines  OK
-
-
-#  pp2 - remove 'onclick' from html buttons - should work. Try then send to Malia
