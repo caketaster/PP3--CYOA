@@ -40,38 +40,78 @@ Benjamin Norman
 The player is prompted for their name and hometown before entering the game proper. Given a series of choices, the player must navigate (predominently by choosing story paths via "1" or "2") to try and save a kidnapped prince or princess.
 
 # Features
-The player is prompted for their name, which is then reversed and capitalised to be used as the player name throughout the game. If no name is submitted the game chooses a name for the player.
+Intro text <br>
+![intro](images/feat1.jpg)<br>
+The game is introduced with a retro-style bubble-font of the game title.
 
-The player is then asked for their hometown, which is used as the setting for the game. Again, if none is entered then the game chooses a setting. 
 
-The player then decides if they are rescuing a prince or a princess. This choice reflects minor changes in a few areas of the game. 
+Name input:<br>
+![name](images/feat4.jpg)<br>
+- The game collects the name.
+- Name is reversed and capitalised to use as ingame-name.
+- Blank name defaults to Herbert. 
 
-The player then has to make choices to navigate through the game. There are several locations: palace, pub, crossroads, and choices at each location which define whether or not you succeed or end with a Game Over failure. 
 
-At the Palace, the player can choose to go towards the Pub or the Crossroads.
-At the Pub the player can turn towards the Palace, Crossroads, or stay in the Pub.
-On the way to the Crossroads the player must decide whether to take a toilet break or continue on.
-At the Crossroads the player must choose which implement to use to try and save the royal.
-If the correct implement is chosen, the player must choose their reward: a kiss or some money.
-If a kiss is chosen, more money is offered. The player must decide whether to accept the money or insist on the kiss. 
+Town input:<br>
+![town](images/feat5.jpg)<br>
+- Game colects town as game location.
+- Blank name defaults to Swindon. 
 
-There are 4 Game Over endings.
-The player can secure victory in 3 different ways depending on their choices. 
+
+Prince or Princess:<br>
+![royal](images/feat6.jpg)<br>
+- Player chooses which type of royal needs rescuing.
+
+
+Palace or Pub:<br>
+![palace pub](images/feat7.jpg)<br>
+- First directional choice.
+
+
+Crossroads, Palace or Stay in Pub:<br>
+![crossroads palace stay](images/feat8.jpg)<br>
+- Choice of Palace, Crossroads, or staying in the Pub.
+
+
+Relieve self in bushes or own clothes:<br>
+![bushes or trousers](images/feat9.jpg)<br>
+- Choice of how to relieve oneself.
+
+
+Choose rock, knife or stick:<br>
+![weapon](images/feat10.jpg)<br>
+- Choice of implement to stop the carriage.
+
+
+Choose money or kiss:<br>
+![money kiss](images/feat11.jpg)<br>
+- Choice of money or a kiss.
+
+
+Choose more money or insist on kiss:<br>
+![more money kiss](images/feat12.jpg)<br>
+- Choice of money or a kiss.
+
+
+Generic features:
+- For inputs, all leading/trailing whitespaces are stripped.
+- Text 'types out' rather than appearing as an immediate block.
+- There are pauses between some lines for dramatic effect.
+- Input text does not type out, but appears immediately. Input text is in RED.
+- Game Over text is in YELLOW.
+- Victory text is in GREEN
+
+- There are 4 Game Over endings.
+- The player can secure victory in 3 different ways depending on their choices. 
 
 The included flowchart details each possible choice and ending.
 
-Pyfiglet is used to add an ASCII title to the game.
-
-Colorama is used to add some colour to the game, with the title in BLUE, inputs given in RED, Game Over messages in YELLOW and victories in GREEN.
-
-Time is used to simulate the text being typed out (so it doesn't all appear in an immediate block of text) and is also used to create pauses between some lines. 
-
 ## Future Features
-In future I would like to add more levels of choices as the game currently is not hugely deep.
-
-I originally wanted to include an element of randomness (dice throws) with buffs or debuffs depending on which weapon a player had chosen, but discarded this idea for reasons of complexity and time. 
-
-I would like to add more ASCII art to the game, as it's currently all text within the game itself. ASCII pictures would add to the visual element. 
+In future I would like to:
+- add more levels of choices as the game currently is not hugely deep.
+- add more ASCII art to the game, as it's currently all text within the game itself. ASCII pictures would add to the visual element. 
+- include an element of randomness (dice throws) with buffs or debuffs depending on which weapon a player had chosen.
+- put the dialogue into a spreadsheet so that the dialogue could be edited without going into the code. The game 'shape' could then be used with multiple different dialogue options.
 
 # Flow Chart
 I used LucidChart to create a flowchart of the game showing all instances of information collection (orange boxes), choices (in diamond-shaped boxes), Game Over endings (margined boxes) and victories (standard boxes).
@@ -80,7 +120,9 @@ There were minor changes in a few areas from this original plan, but the shape i
 ![lucidchart flowchart](images/lucidchart.png)
 
 # Classes
-I used one class in the game, with the game itself as the class. All methods use self and all parameters are also self. 
+I used one class in the game, with the game itself as the data model that tracks the parameters. All methods use self and all parameters are also self. All decisions are methods tothe AdventureGame class.
+
+![main class](images/class.jpg)
 
 ## Libraries Used
 I used the following libraries and modules:
@@ -91,8 +133,7 @@ I used the following libraries and modules:
 
 # Testing
 ## Validation testing
-I pasted run.py into the [CI Python Linter](https://pep8ci.herokuapp.com/) and had one single error (E261) returned multiple times (E261 at least two spaces before inline comment). This refers to my use of # noqa. 
-But when leaving 2 spaces before # noqa, a separate error is raised in the VS Code terminal stating that my line is too long - I have to only use 1 space for the terminal to accept the # noqa. For that reason I'm ignoring the linter's error messages. 
+I pasted run.py into the [CI Python Linter](https://pep8ci.herokuapp.com/) and zero errors were returned.
 
 ![linter](images/linter.jpg)
 
@@ -100,19 +141,16 @@ But when leaving 2 spaces before # noqa, a separate error is raised in the VS Co
 
 ![Manual testing chart](images/manual.jpg)
 
-When prompted to start the game, any stripped input other than Y/y will re-prompt the player to start the game.
-
-When asked for their name, a completely blank input will result in a name being assigned to the player.
-
-The name input is also stripped of leading and trailing blank spaces before being processed.
-
-When asked for their hometown, a blank input will result in a town being assigned to the game.
-
-In the majority of further choices [generally a choice of "1“ or ”2“] blank spaces are stripped and any choice other than the prescribed "1", "2" or occasionally "3" will result in the question being reprompted. 
+- When prompted to start the game, any stripped input other than Y/y will re-prompt the player to start the game.
+- When asked for their name, a completely blank input will result in a name being assigned to the player.
+- The name input is also stripped of leading and trailing blank spaces before being processed.
+- When asked for their hometown, a blank input will result in a town being assigned to the game.
+- In the majority of further choices [generally a choice of "1“ or ”2“] blank spaces are stripped and any choice other than the prescribed "1", "2" or occasionally "3" will result in the question being reprompted. 
 
 ## Outstanding Defects
 Many of my lines were well over 80 characters, and I used # noqa liberally. 
-I saw no reason to break long pieces of text into short lines when they wrap perfectly well.
+I saw no reason to break long pieces of text into short lines when they wrap perfectly well in VS Code.
+I acknowledge that another way would be to manually wrap long lines in tripple quotes.
 
 # Deployment
 The app was deployed to Heroku using the following steps:
@@ -162,4 +200,4 @@ Creating a reverse-string:<br>
 Using colours in Python:<br>
 [Print Colors in the Python Terminal - Geeks For Geeks](https://www.geeksforgeeks.org/print-colors-python-terminal/)
 
-And I couldn't have completed the program with help from my mentor, Malia. 
+And I absolutely couldn't have completed the program with help from my mentor, Malia. 
