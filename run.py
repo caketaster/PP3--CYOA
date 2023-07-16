@@ -50,7 +50,7 @@ class AdventureGame:
             time.sleep(0.5)
             print_slowly(f"I shall call you {self.name}, 'tis far better!")
             time.sleep(0.4)
-            print_slowly("And I think it's sounds kind of Welsh.")
+            print_slowly("And I think it sounds kind of Welsh.")
 
         self.hometown()
         return
@@ -413,6 +413,7 @@ class AdventureGame:
 def print_slowly(text):
     """
     Function to print text one character at time to the screen
+    as if it's being typed out
     """
     for character in text:
         sys.stdout.write(character)
