@@ -120,7 +120,7 @@ There were minor changes in a few areas from this original plan, but the shape i
 ![lucidchart flowchart](images/lucidchart.png)
 
 # Classes
-I used one class in the game, with the game itself as the data model that tracks the parameters. All methods use self and all parameters are also self. All decisions are methods tothe AdventureGame class.
+I used one class in the game, with the game itself as the data model that tracks the parameters. All methods use self and all parameters are also self. All decisions are methods to the AdventureGame class.
 
 ![main class](images/class.jpg)
 
@@ -150,7 +150,7 @@ I pasted run.py into the [CI Python Linter](https://pep8ci.herokuapp.com/) and z
 ## Outstanding Defects
 Many of my lines were well over 80 characters, and I used # noqa liberally. 
 I saw no reason to break long pieces of text into short lines when they wrap perfectly well in VS Code.
-I acknowledge that another way would be to manually wrap long lines in tripple quotes.
+I acknowledge that another way would be to manually wrap long lines in triple quotes.
 
 # Deployment
 The app was deployed to Heroku using the following steps:

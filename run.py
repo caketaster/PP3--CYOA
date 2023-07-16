@@ -140,7 +140,7 @@ class AdventureGame:
 
                 print_slowly("smooth of skin and the most lovely in the land,")
 
-                print_slowly("was this morning kidnapped from the castle.")
+                print_slowly("was this morning kidnapped from the palace.")
 
                 time.sleep(0.5)
                 print_slowly("Whomsoever dost rescue her surely shall be handsomely rewarded")  # noqa
@@ -154,7 +154,7 @@ class AdventureGame:
                 self.first()
                 return
             else:
-                print_slowly("Your chubby peasantly fingers have missed the relevant keys. ")  # noqa
+                print_slowly(Fore.WHITE + "Your chubby peasantly fingers have missed the relevant keys. ")  # noqa
 
                 time.sleep(0.5)
                 print_slowly("Attempt to uncross thine eyes and try again.")
@@ -396,7 +396,7 @@ class AdventureGame:
                         print(Fore.GREEN + "THE END")
                         quit()
                     else:
-                        print_slowly("Do not let your joy get the better of you, steady yourself and choose one of the two options available.")  # noqa
+                        print_slowly(Fore.WHITE + "Do not let your joy get the better of you, steady yourself and choose one of the two options available.")  # noqa
 
             else:
                 print_slowly(Fore.WHITE + "On offer: money or possible love. What will ye decide?")  # noqa
