@@ -16,6 +16,9 @@ class AdventureGame:
         self.town = ""
         self.royal = ""
 
+    def __str__(self):
+        return f"{self.name} of {self.town} on a mission to rescue a {self.royal}."  # noqa
+
     def opening(self):
         """
         Gives the user the 'choice' of whether or not to start the game
@@ -354,9 +357,7 @@ class AdventureGame:
             reward = input(
                 Fore.RED + "Will you ask for a BAG OF GOLDEN COINS [1], or a KISS [2] on the face? \n").strip()  # noqa
             if reward == "1":
-                print_slowly(Fore.WHITE + f"""The {self.royal} digs around in their pocket and pulls out a bag of coins. 
-                They hand it to you without a word, dust themselves down and start the long walk 
-                back toward the palace.""")  # noqa
+                print_slowly(Fore.WHITE + f"The {self.royal} digs around in their pocket and pulls out a bag of coins.They hand it to you without a word, dust themselves down and start the long walk back toward the palace")  # noqa
 
                 time.sleep(0.5)
                 print_slowly("You're rich beyond your wildest dreams. Already your head is swimming with ideas on upgrading your hovel and buying a second set of trousers.")  # noqa
@@ -365,6 +366,7 @@ class AdventureGame:
                 print_slowly("You wander home, smiling happily")
                 time.sleep(1)
                 print(Fore.GREEN + "THE END")
+                quit()
             elif reward == "2":
                 print_slowly(Fore.WHITE + f"You pucker up and lean in. The horrified {self.royal} staggers back, clasping at the air.")  # noqa
                 time.sleep(0.5)
@@ -397,7 +399,7 @@ class AdventureGame:
                         print_slowly("Do not let your joy get the better of you, steady yourself and choose one of the two options available.")  # noqa
 
             else:
-                print_slowly("On offer: money or possible love. What will ye decide?")  # noqa
+                print_slowly(Fore.WHITE + "On offer: money or possible love. What will ye decide?")  # noqa
 
     def game_over(self):
         """
